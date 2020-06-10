@@ -1,0 +1,35 @@
+{
+  "name": "npx-esm",
+  "version": "1.0.0",
+  "description": "Run ESM programs with Node's NPX util",
+  "bin": {
+    "esm": "bin/esm.js"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test/index.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rumkin/npx-esm.git"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "npx",
+    "util",
+    "tool",
+    "exec",
+    "execute",
+    "executable",
+    "run",
+    "esm"
+  ],
+  "author": "Paul Rumkin <dev@rumk.in>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rumkin/npx-esm/issues"
+  },
+  "homepage": "https://github.com/rumkin/npx-esm#readme"
+}
