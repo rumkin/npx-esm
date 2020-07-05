@@ -11,7 +11,7 @@ async function execute({
   )
 
   if (typeof main !== 'function') {
-    return
+    return 1
   }
 
   const result = await main({

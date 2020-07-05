@@ -1,6 +1,6 @@
 {
   "name": "npx-esm",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Run ESM programs with Node's NPX util",
   "bin": {
     "esm": "bin/esm.js"
