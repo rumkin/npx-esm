@@ -17,6 +17,42 @@ Run ESM modules as node programs with npx in a three steps.
   npx esm index.js
   ```
 
+## API
+
+### `CmdParams`
+```text
+{
+  argv: Array<string>,
+  argvHead: Array<string>,
+  cwd: string,
+  stdin: ReadableStream,
+  stdout: WritableStream,
+  stderr: WriteableStream,
+}
+```
+
+The main function receives a command params as the first argument. It contains minimal set of params to execute a command and interact with the user or pipeline.
+
+* `argv` is the list of command line arguments remained after removing executable adn script paths.
+* `argvHead` is the list of command line arguments cropped as executable and script paths.
+* `cwd` is the current directory.
+* `stdin`, `stdout` and `stderr` are I/O streams.
+
+#### Example
+```js
+async function main({
+  argv, // -> ['--help']
+  argvHead, // -> ['node', 'script.js']
+  cwd, // '/dev/project/esm'
+  stdout, // writable stream
+  stderr, // writable stream
+  stdin, // readable stream
+}) {
+  stdout.write('OK')
+  return 1
+}
+```
+
 ## License
 
 MIT © [Rumkin](https://rumk.in)

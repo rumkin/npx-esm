@@ -4,6 +4,7 @@ async function execute({
   argv: [script, ...argv],
   argvHead = [],
   cwd = process.cwd(),
+  ...rest
 }) {
   const {default: main} = await import(
     path.resolve(cwd, script)
@@ -16,6 +17,8 @@ async function execute({
   const result = await main({
     argv,
     argvHead: [...argvHead, script],
+    cwd,
+    ...rest,
   })
 
   switch (result) {
