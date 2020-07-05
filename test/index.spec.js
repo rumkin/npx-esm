@@ -3,7 +3,7 @@ const stream = require('stream')
 
 const execute = require('..')
 
-async function test() {
+async function testHello() {
   let chunks = []
   let stdout = new stream.Writable({
     write(chunk, encoding, done) {
@@ -28,7 +28,27 @@ async function test() {
   assert.equal(output, 'Hello', 'Output is "Hello"')
 }
 
-test()
+async function testNoop() {
+  let result = await execute({
+    argv: ['./fixtures/noop.mjs'],
+    argvHead: ['node'],
+    cwd: __dirname,
+  })
+
+  // Test result
+  assert.equal(result, 1, 'Result should be equal `1`')
+}
+
+async function test(fs) {
+  for (const f of fs) {
+    await f()
+  }
+}
+
+test([
+  testHello,
+  testNoop,
+])
 .catch((error) => {
   console.error('Test should not throw errors. But it thrown:')
   console.error(error)
